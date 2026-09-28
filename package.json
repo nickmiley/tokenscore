@@ -1,0 +1,21 @@
+{
+  "name": "tokenscore",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A credit score for how efficiently you spend AI tokens.",
+  "workspaces": [
+    "packages/core",
+    "extension",
+    "server"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace extension",
+    "test": "npm test --workspace @tokenscore/core",
+    "server": "npm start --workspace @tokenscore/server",
+    "recompute": "npm run recompute --workspace @tokenscore/server"
+  },
+  "engines": {
+    "node": ">=22.13"
+  }
+}

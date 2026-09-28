@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "TokenScore",
+  "version": "0.1.0",
+  "description": "A credit score for how efficiently you spend AI tokens.",
+  "minimum_chrome_version": "120",
+  "permissions": ["storage", "alarms"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html", "default_title": "TokenScore" },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://claude.ai/*",
+        "https://gemini.google.com/*",
+        "https://copilot.microsoft.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

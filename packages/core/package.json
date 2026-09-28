@@ -1,0 +1,17 @@
+{
+  "name": "@tokenscore/core",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Pure, dependency-free primitives shared by the TokenScore extension and server: token estimation, lexical features, scoring and rating.",
+  "exports": {
+    "./tokenizer": "./src/tokenizer.js",
+    "./text": "./src/text.js",
+    "./features": "./src/features.js",
+    "./stats": "./src/stats.js",
+    "./scoring": "./src/scoring.js",
+    "./rating": "./src/rating.js"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  }
+}

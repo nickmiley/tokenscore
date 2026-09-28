@@ -1,0 +1,17 @@
+{
+  "name": "@tokenscore/extension",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "description": "TokenScore Chrome extension (Manifest V3). Observes chat UIs, extracts numeric features in-page, syncs them to the API, and shows your score.",
+  "scripts": {
+    "build": "node build.mjs",
+    "watch": "node build.mjs --watch"
+  },
+  "dependencies": {
+    "@tokenscore/core": "0.1.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}

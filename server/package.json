@@ -1,0 +1,18 @@
+{
+  "name": "@tokenscore/server",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "description": "TokenScore API: ingests feature vectors, computes weekly ratings, serves leaderboards and team views. Zero runtime dependencies (node:http + node:sqlite).",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node --no-warnings=ExperimentalWarning src/index.js",
+    "recompute": "node --no-warnings=ExperimentalWarning src/jobs/recompute.js"
+  },
+  "dependencies": {
+    "@tokenscore/core": "0.1.0"
+  },
+  "engines": {
+    "node": ">=22.13"
+  }
+}
