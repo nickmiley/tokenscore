@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>TokenScore settings</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="options">
+  <h1>TokenScore settings</h1>
+  <p class="muted" style="margin-top:6px">Everything is measured in your browser. Only numbers are sent to the server you choose below.</p>
+
+  <h2>Measuring</h2>
+  <label class="toggle">
+    <input type="checkbox" id="enabled">
+    <span>Measure my chats on ChatGPT, Claude, Gemini and Copilot. <span class="muted">Turning this off stops observation immediately; local data is kept until you clear it.</span></span>
+  </label>
+  <label class="toggle">
+    <input type="checkbox" id="nudges">
+    <span>Show a notice when a thread's context passes
+      <input type="number" id="nudgeThreshold" min="5000" step="5000" style="width:7em;padding:2px 6px"> tokens.</span>
+  </label>
+
+  <h2>Server</h2>
+  <div class="field">
+    <label for="serverUrl">Server URL</label>
+    <input type="url" id="serverUrl" placeholder="https://tokenscoreserver-production.up.railway.app">
+    <span class="help">Where your numbers are scored. Leave as is unless you run your own server.</span>
+  </div>
+
+  <div id="signed-out">
+    <div class="field">
+      <label for="displayName">Display name <span class="muted">(optional)</span></label>
+      <input type="text" id="displayName" maxlength="40" placeholder="Leave blank for a random name">
+      <span class="help">Shown on the leaderboard.</span>
+    </div>
+    <div class="row">
+      <button class="primary" id="register">Connect</button>
+      <span class="muted">or</span>
+      <input type="password" id="apiKeyInput" placeholder="paste an existing API key" style="flex:1;padding:6px 9px;border:1px solid var(--rule);background:var(--paper-2)">
+      <button id="useKey">Use key</button>
+    </div>
+  </div>
+
+  <div id="signed-in" class="hidden">
+    <div class="field">
+      <label>Connected as</label>
+      <div id="who"></div>
+    </div>
+    <div class="field">
+      <label>API key</label>
+      <div class="row"><span class="key" id="apiKey">••••••••••••</span><button class="quiet" id="reveal">Reveal</button></div>
+      <span class="help">Keep this private. Anyone with it can send sessions as you.</span>
+    </div>
+    <button class="quiet" id="signout">Disconnect</button>
+  </div>
+
+  <h2>Data</h2>
+  <div class="row">
+    <button id="save" class="primary">Save changes</button>
+    <button id="syncNow">Sync now</button>
+    <button class="quiet" id="clear">Clear local data</button>
+    <span id="status" class="muted"></span>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

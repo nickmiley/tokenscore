@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>TokenScore</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body>
+  <header class="hero">
+    <span class="num unrated" id="rating">—</span>
+    <span class="status" id="status">Loading…</span>
+    <div class="ruler" aria-hidden="true">
+      <div class="track"></div>
+      <div class="fill" id="ruler-fill" style="width:0"></div>
+      <div class="mark" id="ruler-mark" style="left:0"></div>
+      <span class="end lo">300</span>
+      <span class="end hi">850</span>
+    </div>
+  </header>
+
+  <div class="notice hidden" id="consent">
+    <p>TokenScore reads the chats you have open on ChatGPT, Claude, Gemini and Copilot, measures how efficiently they use tokens, and keeps only the numbers. No prompt or reply text leaves the page.</p>
+    <p>You will appear on the leaderboard under a random name, like “Quiet Heron 42”. You can turn measuring off at any time in settings.</p>
+    <div class="actions">
+      <button class="primary" id="enable">Start measuring</button>
+      <button class="quiet" id="open-settings-consent">Settings</button>
+    </div>
+  </div>
+
+  <div class="notice hidden" id="signin">
+    <p>Measuring locally, but not connected to the TokenScore server yet. Your numbers are kept and will sync once connected.</p>
+    <p class="error hidden" id="signin-error"></p>
+    <div class="actions"><button class="primary" id="retry-connect">Try again</button><button class="quiet" id="open-settings-signin">Settings</button></div>
+  </div>
+
+  <nav class="tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-tab="score">Score</button>
+    <button role="tab" aria-selected="false" data-tab="board">Board</button>
+    <button role="tab" aria-selected="false" data-tab="team">Team</button>
+  </nav>
+
+  <section role="tabpanel" data-tab="score">
+    <h2>Breakdown</h2>
+    <ul class="ledger" id="categories"></ul>
+    <h2 id="reasons-title">What is holding it back</h2>
+    <ul class="reasons" id="reasons"></ul>
+    <h2>This conversation</h2>
+    <ul class="ledger" id="receipt"></ul>
+  </section>
+
+  <section role="tabpanel" data-tab="board" class="hidden">
+    <div class="board" id="board"></div>
+  </section>
+
+  <section role="tabpanel" data-tab="team" class="hidden">
+    <div id="team"></div>
+  </section>
+
+  <footer>
+    <span id="sync-status"></span>
+    <span class="spacer"></span>
+    <button class="quiet" id="sync">Sync</button>
+    <button class="quiet" id="open-settings">Settings</button>
+  </footer>
+  <script src="popup.js"></script>
+</body>
+</html>
